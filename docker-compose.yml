@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  ctf-container:
+    build: ./root/docker-ctf-container
+    image: ctf-container:ctf
+    volumes: 
+     - ./root/shr:/shr
+    ports:
+     - 1337:1337
+    stdin_open: true
+    tty: true
+    entrypoint: /bin/bash
+    working_dir: /shr
+    privileged: true
+    cap_add:
+     - SYS_PTRACE
+    security_opt:
+     - seccomp:unconfined

@@ -1,0 +1,5 @@
+# Ignore within root by default
+root/*
+
+# Exceptions: planned containers
+!root/docker*
